@@ -164,7 +164,7 @@ local skyshardsData = {}
 --       4 = under ground
 --       5 = in group delve
 skyshardsData["alikr"] = {
---Alik'r Desert (Daggerfall, lvl 31-37)
+	--Alik'r Desert
    ["alikr_base"] = {            --Alik'r Desert
       { 0.2462, 0.4904, 556, 1, 1 }, --Sentinel                     --0.206, 0.488
       { 0.4077, 0.6275, 556, 2 },                                   --0.391, 0.646
@@ -216,48 +216,48 @@ skyshardsData["alikr"] = {
 }
 
 skyshardsData["auridon"] = {
---Auridon (Aldmeri lvl 5-15)
+	--Auridon
    ["auridon_base"] = { --Auridon
-      { 0.6023, 0.8952, 695, 1, 1 }, --Vulkhel Guard
-      { 0.708, 0.829, 695, 2 },
-      { 0.437, 0.775, 695, 3 },
-      { 0.6896, 0.5177, 695, 4, 1 }, --Skywatch
-      { 0.5981, 0.4013, 695, 5 },
-      { 0.4760, 0.5340, 695, 6 },
-      { 0.4223, 0.3228, 695, 7 },
-      { 0.4757, 0.3569, 695, 8 },
-      { 0.419, 0.136, 695, 9 },
-      { 0.439, 0.406, 695, 10, 2 }, --Bewan
-      { 0.583, 0.852, 695, 11, 2 }, --Del's Claim
-      { 0.563, 0.560, 695, 12, 2 }, --Entila's Folly
-      { 0.203, 0.217, 695, 13, 2 }, --Mehrunes' Spite
-      { 0.546, 0.698, 695, 14, 2 }, --Ondil
-      { 0.579, 0.326, 695, 15, 2 }, --Wansalen
-      { 0.423, 0.676, 695, 16, 3 }, --Toothmaul Gully
+      { 0.6005, 0.8980, 695, 1, 1 }, --Vulkhel Guard
+      { 0.708, 0.83, 695, 2 },
+      { 0.4329, 0.7758, 695, 3 },
+      { 0.6890, 0.5158, 695, 4, 1 }, --Skywatch
+      { 0.5963, 0.3976, 695, 5 },
+      { 0.4726, 0.5322, 695, 6 },
+      { 0.4182, 0.3182, 695, 7 },
+      { 0.4722, 0.3527, 695, 8 },
+      { 0.4151, 0.1290, 695, 9 },
+      { 0.4348, 0.4020, 695, 10, 2 }, --Bewan
+      { 0.5811, 0.8546, 695, 11, 2 }, --Del's Claim
+      { 0.5607, 0.5580, 695, 12, 2 }, --Entila's Folly
+      { 0.1957, 0.2111, 695, 13, 2 }, --Mehrunes' Spite
+      { 0.5434, 0.6983, 695, 14, 2 }, --Ondil
+      { 0.5773, 0.3214, 695, 15, 2 }, --Wansalen
+      { 0.4195, 0.6759, 695, 16, 3 }, --Toothmaul Gully
    },
    ["vulkhelguard_base"] = {
-      { 0.3950, 0.4045, 695, 1 }, --Update 6
+      { 0.3965, 0.4050, 695, 1 },
    },
    ["skywatch_base"] = {
       { 0.5469, 0.5537, 695, 4 },
    },
    ["bewan_base"] = {
-      { 0.9172, 0.8361, 695, 10 },    --Update 6
+      { 0.9172, 0.8361, 695, 10 },
    },
    ["delsclaim_base"] = {
-      { 0.316, 0.219, 695, 11 },    --Update 5
+      { 0.316, 0.219, 695, 11 },
    },
    ["entilasfolly_base"] = {
-      { 0.8189, 0.7917, 695, 12 },    --Update 6
+      { 0.8189, 0.7917, 695, 12 },
    },
    ["mehrunesspite_base"] = {
-      { 0.694, 0.256, 695, 13 },    --Update 6
+      { 0.694, 0.256, 695, 13 },
    },
    ["ondil_base"] = {
-      { 0.835, 0.624, 695, 14 },    --Update 6
+      { 0.835, 0.624, 695, 14 },
    },
    ["wansalen_base"] = {
-      { 0.2766, 0.5446, 695, 15 },    --Update 6
+      { 0.2766, 0.5446, 695, 15 },
    },
    ["toothmaulgully_base"] = {
       { 0.635, 0.669, 695, 16 },
@@ -277,7 +277,7 @@ skyshardsData["auridon"] = {
 }
 
 skyshardsData["bangkorai"] = {
---Bangkorai (Daggerfall, lvl 37-43)
+	--Bangkorai
    ["bangkorai_base"] = {        --Bangkorai
       { 0.387, 0.390, 557, 1, 1 }, --Evermore
       { 0.582, 0.248, 557, 2 },
@@ -323,7 +323,7 @@ skyshardsData["bangkorai"] = {
 }
 
 skyshardsData["coldharbor"] = {
---Coldharbour (all, lvl 45-50)
+	--Coldharbour
    ["coldharbour_base"] = {      --Coldharbour
       { 0.4147, 0.6252, 686, 1 },
       { 0.4550, 0.7381, 686, 2 },
@@ -449,7 +449,7 @@ skyshardsData["craglorn"] = {
 }
 
 skyshardsData["cyrodiil"] = {
---Cyrodiil (all, lvl 10+)
+	--Cyrodiil
    ["ava_whole"] = {          --Cyrodiil
    --Aldmeri
       { 0.574, 0.851, 694, 1 },
@@ -664,7 +664,7 @@ skyshardsData["cyrodiil"] = {
 }
 
 skyshardsData["deshaan"] = {
---Deshaan (Ebonheart, lvl 16-23)
+	--Deshaan
    ["deshaan_base"] = {              --"Deshaan"
       { 0.0881, 0.4721, 547, 1 },
       { 0.1835, 0.5147, 547, 2, 1 }, --Narsis
@@ -713,7 +713,7 @@ skyshardsData["deshaan"] = {
 }
 
 skyshardsData["eastmarch"] = {
---Eastmarch (Ebonheart, lvl 31-37)
+	--Eastmarch
    ["eastmarch_base"] = {        --Eastmarch
       { 0.333, 0.408, 688, 1 },
       { 0.584, 0.346, 688, 2 },
@@ -763,7 +763,7 @@ skyshardsData["eastmarch"] = {
 }
 
 skyshardsData["glenumbra"] = {
---Glenumbra (Daggerfall, lvl 5-15)
+	--Glenumbra
    ["glenumbra_base"] = {        --Glenumbra
       { 0.319, 0.755, 409, 1, 1 }, --Dagerfall
       { 0.454, 0.540, 409, 2 },
@@ -828,7 +828,7 @@ skyshardsData["glenumbra"] = {
 }
 
 skyshardsData["grahtwood"] = {
---Grahtwood (Aldmeri, lvl 16-23)
+	--Grahtwood
    ["grahtwood_base"] = {        --Grahtwood
       { 0.739, 0.678, 682, 1, 1 }, --Haven
       { 0.446, 0.723, 682, 2 },
@@ -877,7 +877,7 @@ skyshardsData["grahtwood"] = {
 }
 
 skyshardsData["greenshade"] = {
---Greenshade (Aldmeri lvl 25-30)
+	--Greenshade
    ["greenshade_base"] = {       --Greenshade
       { 0.629, 0.795, 683, 1 },
       { 0.528, 0.656, 683, 2 },
@@ -926,7 +926,7 @@ skyshardsData["greenshade"] = {
 }
 
 skyshardsData["malabaltor"] = {
---Malabal Tor (Aldmeri, lvl 31-37)
+	--Malabal Tor
    ["malabaltor_base"] = { --Malabal Tor
       { 0.187, 0.499, 684, 1, 1 }, --Velyn Harbor
       { 0.214, 0.451, 684, 2 },
@@ -978,7 +978,7 @@ skyshardsData["malabaltor"] = {
 }
 
 skyshardsData["reapersmarch"] = {
---Reaper's March (Aldmeri, lvl 37-43)
+	--Reaper's March
    ["reapersmarch_base"] = {     --Reaper's March
       { 0.378, 0.199, 685, 1 },
       { 0.429, 0.334, 685, 2 },
@@ -1027,7 +1027,7 @@ skyshardsData["reapersmarch"] = {
 }
 
 skyshardsData["rivenspire"] = {
---Rivenspire (Daggerfall, lvl 25-30)
+	--Rivenspire
    ["rivenspire_base"] = {       --Rivenspire
       { 0.447, 0.602, 554, 1, 1 }, -- Stornhelm
       { 0.155, 0.568, 554, 2 },
@@ -1077,7 +1077,7 @@ skyshardsData["rivenspire"] = {
 }
 
 skyshardsData["shadowfen"] = {
---Shadowfen (Ebonheart, lvl 25-30)
+	--Shadowfen
    ["shadowfen_base"] = {        --Shadowfen
       { 0.4450, 0.2722, 687, 1, 1 }, --Stormhold
       { 0.2268, 0.2854, 687, 2 },
@@ -1126,7 +1126,7 @@ skyshardsData["shadowfen"] = {
 }
 
 skyshardsData["stonefalls"] = {
---Stonefalls (Ebonheart, lvl 5-15)
+	--Stonefalls
    ["stonefalls_base"] = {       --Stonefalls
       { 0.7770, 0.3460, 397, 1, 1 }, --Davon's Watch
       { 0.9437, 0.4716, 397, 2 },
@@ -1191,7 +1191,7 @@ skyshardsData["stonefalls"] = {
 }
 
 skyshardsData["stormhaven"] = {
---Stormhaven (Daggerfall, lvl 16-23)
+	--Stormhaven
    ["stormhaven_base"] = {       --Stormhaven
       { 0.150, 0.348, 515, 1 },
       { 0.220, 0.203, 515, 2 },
@@ -1237,7 +1237,7 @@ skyshardsData["stormhaven"] = {
 }
 
 skyshardsData["therift"] = {
---The Rift (Ebonheart, lvl 37-43)
+	--The Rift
    ["therift_base"] = {          --The Rift
       { 0.429, 0.272, 689, 1 },
       { 0.647, 0.291, 689, 2 }, --Shor's Stone (you can't go there from city, so no "city" label on tooltip)
@@ -1286,7 +1286,7 @@ skyshardsData["therift"] = {
 }
 
 skyshardsData["wrothgar"] = {
---Wrothgar (Orsinium DLC)
+	--Wrothgar (Orsinium DLC)
    ["wrothgar_base"] = {          --Wrothgar
       { 0.1944, 0.8285, 1320, 1 },
       { 0.3342, 0.7521, 1320, 2 },
@@ -1336,7 +1336,7 @@ skyshardsData["wrothgar"] = {
 }
 
 skyshardsData["thievesguild"] = {
---Hew's Bane (Thieves Guild DLC)
+	--Hew's Bane (Thieves Guild DLC)
    ["hewsbane_base"] = {          --Hew's Bane
       { 0.6813, 0.4093, 1347, 1, 1 },
       { 0.4409, 0.4846, 1347, 2 },
@@ -1366,7 +1366,7 @@ skyshardsData["thievesguild"] = {
 }
 
 skyshardsData["darkbrotherhood"] = {
--- Dark Botherhood
+	-- Dark Botherhood
    ["goldcoast_base"] = {          -- Gold Coast
       { 0.255, 0.5822, 1342, 1 },
       { 0.298, 0.1924, 1342, 2 },
