@@ -59,6 +59,7 @@ local skyshardsAchievementIDs = {
 	[1347] = true, --Hew's Bane Skyshard Hunter
 	[1342] = true, --Gold Coast Skyshard Hunter
 	[1843] = true, --Morrowind Skyshard Hunter
+	[1844] = true, --Clockwork City Skyshard Hunter
 }
 
 local skyshardsExplorationIDs = {
@@ -90,6 +91,7 @@ local skyshardsExplorationIDs = {
 	[28] = 1359,
 	[29] = 1428,
 	[30] = 1866,
+	[31] = 2018,
 }
 
 local skyshardsMainQuestIDs = {
@@ -121,6 +123,7 @@ local skyshardsMainQuestIDs = {
 	[28] = 1363,
 	[29] = 1444,
 	[30] = 1852,
+	[31] = 2064,
 }
 
 local skyshardsZoneQuestIDs = {
@@ -152,6 +155,7 @@ local skyshardsZoneQuestIDs = {
 	[28] = 1366,
 	[29] = 1433,
 	[30] = 1867,
+	[31] = 2068,
 }
 
 local skyshardsData = {}
@@ -193,22 +197,22 @@ skyshardsData["alikr"] = {
       { 0.6501, 0.3348, 556, 7 },
    },
    ["aldunz_base"] = {
-      { 0.146, 0.436, 556, 10 },    --Update 5
+      { 0.146, 0.436, 556, 10 },
    },
    ["coldrockdiggings_base"] = {
-      { 0.903, 0.262, 556, 11 },    --Update 5
+      { 0.903, 0.262, 556, 11 },
    },
    ["divadschagrinmine_base"] = {
-      { 0.408, 0.533, 556, 12 },    --Update 5
+      { 0.408, 0.533, 556, 12 },
    },
    ["sandblownmine_base"] = {
-      { 0.854, 0.347, 556, 13 },    --Update 5
+      { 0.854, 0.347, 556, 13 },
    },
    ["santaki_base"] = {
-      { 0.917, 0.709, 556, 14 },    --Update 5
+      { 0.917, 0.709, 556, 14 },
    },
    ["yldzuun_base"] = {
-      { 0.695, 0.329, 556, 15 },    --Update 5
+      { 0.695, 0.329, 556, 15 },
    },
    ["lostcity_base"] = {
       { 0.471, 0.580, 556, 16 },
@@ -300,22 +304,22 @@ skyshardsData["bangkorai"] = {
       { 0.355, 0.680, 557, 1 },
    },
    ["cryptoftheexiles_base"] = {
-      { 0.678, 0.342, 557, 10 }, --Update 4
+      { 0.678, 0.342, 557, 10 },
    },
    ["jaggerjaw_base"] = {        --Klathzgar
-      { 0.532, 0.826, 557, 11 }, --Update 4
+      { 0.532, 0.826, 557, 11 },
    },
    ["murciensclaim_base"] = {    --Torog's Spite
-      { 0.188, 0.237, 557, 12 }, --Update 4
+      { 0.188, 0.237, 557, 12 },
    },
    ["rubblebutte_base"] = {
-      { 0.656, 0.857, 557, 13 }, --Update 4
+      { 0.656, 0.857, 557, 13 },
    },
    ["trollstoothpick_base"] = {
-      { 0.656, 0.334, 557, 14 }, --Update 4
+      { 0.656, 0.334, 557, 14 },
    },
    ["viridianwatch_base"] = {
-      { 0.119, 0.333, 557, 15 }, --Update 4
+      { 0.119, 0.333, 557, 15 },
    },
    ["razakswheel_base"] = {
       { 0.69, 0.45, 557, 16 },
@@ -687,7 +691,7 @@ skyshardsData["deshaan"] = {
       { 0.5269, 0.3668, 547, 2 },
    },
    ["mournhold_base"] = {
-      { 0.3770, 0.3403, 547, 4 }, --Update 6
+      { 0.3770, 0.3403, 547, 4 },
    },
    ["forgottencrypts_base"] = {
       { 0.5902, 0.3052, 547, 10 },
@@ -736,22 +740,22 @@ skyshardsData["eastmarch"] = {
       { 0.733, 0.109, 688, 5 },
    },
    ["thebastardstomb_base"] = {
-      { 0.543, 0.133, 688, 10 },    --Update 5
+      { 0.543, 0.133, 688, 10 },
    },
    ["thechillhollow_base"] = {
-      { 0.338, 0.887, 688, 11 },    --Update 5
+      { 0.338, 0.887, 688, 11 },
    },
    ["thefrigidgrotto_base"] = {
-      { 0.541, 0.719, 688, 12 },    --Update 5
+      { 0.541, 0.719, 688, 12 },
    },
    ["icehammersvault_base"] = {
-      { 0.130, 0.376, 688, 13 },    --Update 5
+      { 0.130, 0.376, 688, 13 },
    },
    ["oldsordscave_base"] = {
-      { 0.314, 0.731, 688, 14 },    --Update 5
+      { 0.314, 0.731, 688, 14 },
    },
    ["stormcragcrypt_base"] = {
-      { 0.322, 0.317, 688, 15 },    --Update 5
+      { 0.322, 0.317, 688, 15 },
    },
    ["hallofthedead_base"] = {
       { 0.505, 0.525, 688, 16 },
@@ -790,22 +794,22 @@ skyshardsData["glenumbra"] = {
       { 0.253, 0.461, 409, 15 },
    },
    ["ilessantower_base"] = {
-      { 0.841, 0.312, 409, 10 },    --Update 6
+      { 0.841, 0.312, 409, 10 },
    },
    ["silumm_base"] = {
-      { 0.256, 0.213, 409, 11 },    --Update 6
+      { 0.256, 0.213, 409, 11 },
    },
    ["minesofkhuras_base"] = {
-      { 0.446, 0.664, 409, 12 },    --Update 6
+      { 0.446, 0.664, 409, 12 },
    },
    ["enduum_base"] = {
-      { 0.406, 0.861, 409, 13 },    --Update 6
+      { 0.406, 0.861, 409, 13 },
    },
    ["eboncrypt_base"] = {
-      { 0.402, 0.116, 409, 14 },    --Update 6
+      { 0.402, 0.116, 409, 14 },
    },
    ["cryptwatchfort_base"] = {
-      { 0.746, 0.264, 409, 15 },    --Update 5
+      { 0.746, 0.264, 409, 15 },
    },
    ["badmanscave_base"] = {
       { 0.332, 0.509, 409, 16 },
@@ -897,7 +901,7 @@ skyshardsData["greenshade"] = {
       { 0.388, 0.449, 683, 16, 3 }, --Rulanyil's Fall
    },
    ["marbruk_base"] = {
-      { 0.334, 0.197, 683, 3 }, --Update 6
+      { 0.334, 0.197, 683, 3 },
    },
    ["woodhearth_base"] = {
       { 0.486, 0.741, 683, 4 },
@@ -955,22 +959,22 @@ skyshardsData["malabaltor"] = {
       { 0.196, 0.259, 684, 10, 2 }, --Black Vine Ruins
    },
    ["blackvineruins_base"] = {
-      { 0.379, 0.875, 684, 10 },    --Update 5
+      { 0.379, 0.875, 684, 10 },
    },
    ["deadmansdrop_base"] = {
-      { 0.191, 0.135, 684, 11 },    --Update 5
+      { 0.191, 0.135, 684, 11 },
    },
    ["hoarvorpit_base"] = {
-      { 0.440, 0.128, 684, 12 },    --Update 5
+      { 0.440, 0.128, 684, 12 },
    },
    ["rootsofsilvenar_base"] = {
-      { 0.571, 0.403, 684, 13 },    --Update 5
+      { 0.571, 0.403, 684, 13 },
    },
    ["shaelruins_base"] = {
-      { 0.312, 0.898, 684, 14 },    --Update 5
+      { 0.312, 0.898, 684, 14 },
    },
    ["tomboftheapostates_base"] = {
-      { 0.541, 0.168, 684, 15 },    --Update 5
+      { 0.541, 0.168, 684, 15 },
    },
    ["crimsoncove02_base"] = {
       { 0.8249, 0.4646, 684, 16 },
@@ -1001,22 +1005,22 @@ skyshardsData["reapersmarch"] = {
       { 0.5870, 0.3386, 685, 7 },
    },
    ["kunasdelve_base"] = {
-      { 0.752, 0.434, 685, 10 }, --Update 4
+      { 0.752, 0.434, 685, 10 },
    },
    ["thibautscairn_base"] = {
-      { 0.778, 0.666, 685, 11 }, --Update 4
+      { 0.778, 0.666, 685, 11 },
    },
    ["weepingwindcave_base"] = {
-      { 0.3760, 0.8308, 685, 12 }, --Update 4
+      { 0.3760, 0.8308, 685, 12 },
    },
    ["clawsstrike_base"] = {
-      { 0.116, 0.395, 685, 13 }, --Update 4
+      { 0.116, 0.395, 685, 13 },
    },
    ["fardirsfolly_base"] = {
-      { 0.332, 0.402, 685, 14 }, --Update 4
+      { 0.332, 0.402, 685, 14 },
    },
    ["jodeslight_base"] = {
-      { 0.1511, 0.2623, 685, 15 }, --Update 4
+      { 0.1511, 0.2623, 685, 15 },
    },
    ["thevilemansefirstfloor_base"] = {    --first floor
       { 0.40, 0.42, 685, 16 },
@@ -1150,22 +1154,22 @@ skyshardsData["stonefalls"] = {
       { 0.8752, 0.5854, 397, 16, 3 }, --Crow's Wood
    },
    ["innerseaarmature_base"] = {
-      { 0.4384, 0.2726, 397, 10 },    --Update 6
+      { 0.4384, 0.2726, 397, 10 },
    },
    ["emberflintmine_base"] = {
-      { 0.7284, 0.5864, 397, 11 },    --Update 5
+      { 0.7284, 0.5864, 397, 11 },
    },
    ["mephalasnest_base"] = {
-      { 0.5612, 0.3496, 397, 12 },    --Update 6
+      { 0.5612, 0.3496, 397, 12 },
    },
-   ["hightidehollow_base"] = {        --Update 6
+   ["hightidehollow_base"] = {    
       { 0.6713, 0.6660, 397, 13 },
    },
-   ["softloamcavern_base"] = {        --Update 6
+   ["softloamcavern_base"] = {    
       { 0.4197, 0.7056, 397, 14 }
    },
    ["sheogorathstongue_base"] = {
-      { 0.5813, 0.2625, 397, 15 },    --Update 6
+      { 0.5813, 0.2625, 397, 15 },
    },
    ["crowswood_base"] = {
       { 0.2447, 0.9636, 397, 16 },
@@ -1244,7 +1248,7 @@ skyshardsData["therift"] = {
       { 0.319, 0.378, 689, 3 },
       { 0.330, 0.513, 689, 4 },
       { 0.393, 0.563, 689, 5 },
-      { 0.110, 0.451, 689, 6 },     --bug #221
+      { 0.110, 0.451, 689, 6 },
       { 0.837, 0.512, 689, 7 },
       { 0.782, 0.621, 689, 8 },
       { 0.719, 0.445, 689, 9 }, --Riften
@@ -1263,22 +1267,22 @@ skyshardsData["therift"] = {
       { 0.798, 0.185, 689, 9 },
    },
    ["avancheznel_base"] = {
-      { 0.110, 0.640, 689, 10 }, --Update 4
+      { 0.110, 0.640, 689, 10 },
    },
    ["brokenhelm_base"] = {
-      { 0.872, 0.645, 689, 11 }, --Update 4
+      { 0.872, 0.645, 689, 11 },
    },
    ["ebonmeretower_base"] = {    --Faldar's Tooth
-      { 0.398, 0.419, 689, 12 }, --Update 4
+      { 0.398, 0.419, 689, 12 },
    },
    ["fortgreenwall_base"] = {
-      { 0.525, 0.447, 689, 13 }, --Update 4
+      { 0.525, 0.447, 689, 13 },
    },
    ["shroudhearth_base"] = {
-      { 0.779, 0.612, 689, 14 }, --Update 4
+      { 0.779, 0.612, 689, 14 },
    },
    ["snaplegcave_base"] = {
-      { 0.801, 0.770, 689, 15 }, --Update 4
+      { 0.801, 0.770, 689, 15 },
    },
    ["thelionsden_base"] = {
       { 0.630, 0.399, 689, 16 },
@@ -1428,6 +1432,34 @@ skyshardsData["vvardenfell"] = {
 	},
 	["nchuleftdepths_base"] = {
 		{ 0.6077, 0.5814, 1843, 18, 2 },
+	},
+}
+
+skyshardsData["clockwork"] = {
+	-- Clockwork City
+	["clockwork_base"] = {				-- Clockwork City
+		{ 0.4633, 0.5042, 1844, 1 },
+		{ 0.4958, 0.6553, 1844, 2 },
+		{ 0.4110, 0.4609, 1844, 3, 4 },
+		{ 0.4453, 0.3591, 1844, 4 },
+		{ 0.8407, 0.6515, 1844, 5, 2 },
+		{ 0.2682, 0.5764, 1844, 6, 2 },
+	},
+	["ccunderground_base"] = {
+		{ 0.8500, 0.7200, 1844, 3, 4 },
+	},
+	["ccunderground02_base"] = {
+		{ 0.8500, 0.7200, 1844, 3, 4 },
+	},
+	["brassfortress_base"] = {
+		{ 0.4576, 0.5555, 1844, 3, 4 },
+		{ 0.3458, 0.5533, 1844, 4 },
+	},
+	["hallsofregulation_base"] = {
+		{ 0.3698, 0.5642, 1844, 5, 3 },
+	},
+	["shadowcleft_base"] = {
+		{ 0.8365, 0.5701, 1844, 6, 3 },
 	},
 }
 
