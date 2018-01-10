@@ -27,10 +27,11 @@ http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 --Libraries--------------------------------------------------------------------
 local LAM = LibStub("LibAddonMenu-2.0")
 local LMP = LibStub("LibMapPins-1.0")
+local GPS = LibStub("LibGPS2")
 
 --Local constants -------------------------------------------------------------
 local ADDON_NAME = "SkyShards"
-local ADDON_VERSION = "8"
+local ADDON_VERSION = "9"
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info128-SkyShards.html"
 local PINS_UNKNOWN = "SkySMapPin_unknown"
 local PINS_COLLECTED = "SkySMapPin_collected"
@@ -141,7 +142,14 @@ local function ShouldDisplaySkyshards()
 	
 	local mapIndex = GetCurrentMapIndex()
 	
-	if not mapIndex and IsInImperialCity() then mapIndex = 26 end
+	if not mapIndex and IsInImperialCity() then mapIndex = GetImperialCityMapIndex() end
+	
+	if not mapIndex then
+		local measurements = GPS:GetCurrentMapMeasurements()
+		if measurements then
+			mapIndex = measurements.mapIndex	-- Sigh
+		end
+	end
 	
 	if mapIndex then
 		if db.immersiveMode == 2 then -- MainQuest
@@ -707,7 +715,7 @@ local function OnLoad(_, name)
 		AlterSkyShardsIndicator()
 		
 		--events
-		EVENT_MANAGER:RegisterForEvent(ADDON_NAME,  EVENT_ACHIEVEMENT_UPDATED, OnAchievementUpdate)
+		EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_ACHIEVEMENT_UPDATED, OnAchievementUpdate)
 		EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_ACHIEVEMENT_AWARDED, OnAchievementAwarded)
 		EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, OnGamepadPreferredModeChanged)
 	end
