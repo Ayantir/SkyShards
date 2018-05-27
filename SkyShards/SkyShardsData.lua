@@ -7,20 +7,20 @@ Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
 You are free to:
 
-    Share — copy and redistribute the material in any medium or format
-    Adapt — remix, transform, and build upon the material
+    Share - copy and redistribute the material in any medium or format
+    Adapt - remix, transform, and build upon the material
     The licensor cannot revoke these freedoms as long as you follow the license terms.
 
 
 Under the following terms:
 
-    Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-    NonCommercial — You may not use the material for commercial purposes.
-    ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
-    No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+    Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+    NonCommercial - You may not use the material for commercial purposes.
+    ShareAlike - If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+    No additional restrictions - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
 
-Please read full licence at : 
+Please read full licence at :
 http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 ]]
 
@@ -60,6 +60,7 @@ local skyshardsAchievementIDs = {
 	[1342] = true, --Gold Coast Skyshard Hunter
 	[1843] = true, --Morrowind Skyshard Hunter
 	[1844] = true, --Clockwork City Skyshard Hunter
+	[1845] = true, --Summerset Skyshard Hunter
 }
 
 local skyshardsExplorationIDs = {
@@ -92,6 +93,7 @@ local skyshardsExplorationIDs = {
 	[29] = 1428,
 	[30] = 1866,
 	[31] = 2018,
+	[32] = 2010,
 }
 
 local skyshardsMainQuestIDs = {
@@ -124,6 +126,7 @@ local skyshardsMainQuestIDs = {
 	[29] = 1444,
 	[30] = 1852,
 	[31] = 2064,
+	[32] = 2194,
 }
 
 local skyshardsZoneQuestIDs = {
@@ -156,6 +159,7 @@ local skyshardsZoneQuestIDs = {
 	[29] = 1433,
 	[30] = 1867,
 	[31] = 2068,
+	[32] = 2209,
 }
 
 local skyshardsData = {}
@@ -763,7 +767,7 @@ skyshardsData["eastmarch"] = {
    ["windhelm_base"] = {
       { 0.3344, 0.4542, 688, 16, 3 },
    },
-	
+
 }
 
 skyshardsData["glenumbra"] = {
@@ -1162,10 +1166,10 @@ skyshardsData["stonefalls"] = {
    ["mephalasnest_base"] = {
       { 0.5612, 0.3496, 397, 12 },
    },
-   ["hightidehollow_base"] = {    
+   ["hightidehollow_base"] = {
       { 0.6713, 0.6660, 397, 13 },
    },
-   ["softloamcavern_base"] = {    
+   ["softloamcavern_base"] = {
       { 0.4197, 0.7056, 397, 14 }
    },
    ["sheogorathstongue_base"] = {
@@ -1463,19 +1467,71 @@ skyshardsData["clockwork"] = {
 	},
 }
 
+skyshardsData["summerset"] = {
+     --- Summerset
+     ["summerset_base"] = {              -- Summerset
+        { 0.2858, 0.5687, 1845, 1 },
+        { 0.3661, 0.5522, 1845, 2 },
+        { 0.1789, 0.2935, 1845, 3 },
+        { 0.2959, 0.1955, 1845, 4 },
+        { 0.4933, 0.1716, 1845, 5 },
+        { 0.5438, 0.4202, 1845, 6 },
+        { 0.5544, 0.5252, 1845, 7 },
+        { 0.7047, 0.7730, 1845, 8 },
+        { 0.4699, 0.4966, 1845, 9 },
+        { 0.2337, 0.4205, 1845, 10 },
+        { 0.3013, 0.2087, 1845, 11, 3 }, -- Karnwasten
+        { 0.4521, 0.7077, 1845, 12, 3 }, -- Sunhold
+        { 0.4892, 0.2751, 1845, 13, 2 }, -- King's Haven East
+        { 0.3581, 0.3249, 1845, 13, 2 }, -- King's Haven West
+        { 0.5096, 0.3272, 1845, 14, 2, 4 }, -- Eton Nir Grotto
+        { 0.5786, 0.5836, 1845, 15, 2 }, -- Archon's Grove
+        { 0.4963, 0.5445, 1845, 16, 2, 4 }, -- Tor-Hame-Khard
+        { 0.2669, 0.5216, 1845, 17, 2 }, -- Wasten Coraldale
+        { 0.5550, 0.5454, 1845, 18, 2, 4 }, -- Artaeum
+    },
+    ["sum_karnwasten"] = {
+        { 0.5995, 0.5956, 1845, 11, 3 },
+    },
+    ["sunhold_base"] = {
+        { 0.3738, 0.3466, 1845, 12, 3 },
+    },
+    ["kingshavenint1_base"] = {
+        { 0.1975, 0.3843, 1845, 13, 2 },
+    },
+    ["etonnir_base"] = {
+        { 0.1481, 0.5968, 1845, 14, 2, 4 },
+    },
+    ["archonsgrove_base"] = {
+        { 0.5428, 0.7050, 1845, 15, 2 },
+    },
+    ["torhamekhard_base"] = {
+        { 0.4689, 0.7125, 1845, 16, 2, 4 },
+    },
+    ["wastencoraldale_base"] = {
+        { 0.3842, 0.4512, 1845, 17, 2 },
+    },
+    ["artaeum_base"] = {
+        { 0.3982, 0.4478, 1845, 18, 2, 4 },
+    },
+    ["traitorsvault03_base"] = {
+        { 0.5822, 0.4789, 1845, 18, 2, 4 },
+    },
+}
+
 function SkyShards_GetAchievementIDs()
    return skyshardsAchievementIDs
 end
 
 local function AreAllWayshrinesUnlocked()
-	
+
 	for nodeIndex = 1, GetNumFastTravelNodes() do
 		local known, _, _, _, _, _, poiType, isShownInCurrentMap = GetFastTravelNodeInfo(nodeIndex)
 		if isShownInCurrentMap and poiType == POI_TYPE_WAYSHRINE and not known then
 			return false
 		end
 	end
-	
+
 	return true
 
 end
