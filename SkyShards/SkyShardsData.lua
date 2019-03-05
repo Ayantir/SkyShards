@@ -61,6 +61,7 @@ local skyshardsAchievementIDs = {
 	[1843] = true, --Morrowind Skyshard Hunter
 	[1844] = true, --Clockwork City Skyshard Hunter
 	[1845] = true, --Summerset Skyshard Hunter
+	[2291] = true, --Murkmire Skyshard Hunter
 }
 
 local skyshardsExplorationIDs = {
@@ -1117,7 +1118,7 @@ skyshardsData["shadowfen"] = {
 		{ 0.3523, 0.3464, 687, 11 },
 		},
 	["chidmoskaruins_base"] = {
-		{ 0.7038, 0.6914, 687, 12 },
+		{ 0.8161, 0.7606, 687, 12 },
 		},
 	["gandranen_base"] = {
 		{ 0.7728, 0.3154, 687, 13 },
@@ -1373,13 +1374,16 @@ skyshardsData["thievesguild"] = {
 		},
 }
 
+-- alias for map ref - thx SDPhantom
+skyshardsData["thievesguild"]["sharktoothgrotto2_base"]=skyshardsData["thievesguild"]["sharktoothgrotto1_base"];
+
 skyshardsData["darkbrotherhood"] = {
 	-- Dark Botherhood
 	["goldcoast_base"] = {          -- Gold Coast
-		{ 0.255, 0.5822, 1342, 1 },
-		{ 0.298, 0.1924, 1342, 2 },
+		{ 0.2550, 0.5822, 1342, 1 },
+		{ 0.2980, 0.1924, 1342, 2 },
 		{ 0.8568, 0.5078, 1342, 3 },
-		{ 0.8791, 0.604, 1342, 4 },
+		{ 0.8791, 0.6040, 1342, 4 },
 		{ 0.3915, 0.4522, 1342, 5, 2 },
 		{ 0.5793, 0.4534, 1342, 6, 2 },
 		},
@@ -1441,6 +1445,8 @@ skyshardsData["vvardenfell"] = {
 
 -- alias for shard 17
 skyshardsData["vvardenfell"]["pulkupper_base"]=skyshardsData["vvardenfell"]["pulklower_base"];
+-- alias for shard 14
+skyshardsData["vvardenfell"]["ashalmawia03_base"]=skyshardsData["vvardenfell"]["ashalmawia02_base"];
 
 
 skyshardsData["clockwork"] = {
@@ -1470,6 +1476,9 @@ skyshardsData["clockwork"] = {
 		{ 0.8365, 0.5701, 1844, 6, 3 },
 	},
 }
+-- alias for shard 5
+skyshardsData["clockwork"]["hallsofregulation_2"] = skyshardsData["clockwork"]["hallsofregulation_base"];
+
 
 skyshardsData["summerset"] = {
 	 --- Summerset
@@ -1520,6 +1529,9 @@ skyshardsData["summerset"] = {
 	["traitorsvault01_base"] = {
 		{ 0.5822, 0.4789, 1845, 18, 2, 4 },
 	},
+	["alinor_base"] = {
+		{ 0.4176, 0.1979, 1845, 1},
+	},
 }
 
 -- alias for Summerset shard 16
@@ -1530,6 +1542,24 @@ skyshardsData["summerset"]["traitorsvault02_base"]=skyshardsData["summerset"]["t
 skyshardsData["summerset"]["traitorsvault03_base"]=skyshardsData["summerset"]["traitorsvault01_base"];
 skyshardsData["summerset"]["traitorsvault04_base"]=skyshardsData["summerset"]["traitorsvault01_base"];
 
+
+skyshardsData["murkmire"] = {
+	--- Murkmire
+	["murkmire_base"] = {
+		{ 0.6370, 0.7602, 2291, 1 },
+		{ 0.9255, 0.6913, 2291, 2 },
+		{ 0.5418, 0.4658, 2291, 3 },
+		{ 0.1919, 0.2780, 2291, 4 },
+		{ 0.2030, 0.5157, 2291, 5, 2 },
+		{ 0.4653, 0.3691, 2291, 6, 2 },
+	},
+	["tsofeercavern01_0"] = {				-- this name is a divergence from the typical map name format, but it works
+		{ 0.2663, 0.8301, 2291, 5, 2 },
+	},
+	["teethofsithis01_base"] = {
+		{ 0.6542, 0.5523, 2291, 6, 2 },
+	},
+}
 
 function SkyShards_GetAchievementIDs()
 	return skyshardsAchievementIDs
