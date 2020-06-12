@@ -1,26 +1,29 @@
 --[[
 -------------------------------------------------------------------------------
--- SkyShards, by Ayantir
+-- SkyShards
+-- Current maintainer: AssemblerManiac
+-- Previous maintainer: Ayantir
+-- originally by Garkin
 -------------------------------------------------------------------------------
 This software is under : CreativeCommons CC BY-NC-SA 4.0
 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
 You are free to:
 
-    Share — copy and redistribute the material in any medium or format
-    Adapt — remix, transform, and build upon the material
+    Share - copy and redistribute the material in any medium or format
+    Adapt - remix, transform, and build upon the material
     The licensor cannot revoke these freedoms as long as you follow the license terms.
 
 
 Under the following terms:
 
-    Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-    NonCommercial — You may not use the material for commercial purposes.
-    ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
-    No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+    Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+    NonCommercial - You may not use the material for commercial purposes.
+    ShareAlike - If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+    No additional restrictions - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
 
-Please read full licence at : 
+Please read full licence at :
 http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 ]]
 
@@ -31,7 +34,7 @@ local GPS = LibStub("LibGPS2")
 
 --Local constants -------------------------------------------------------------
 local ADDON_NAME = "SkyShards"
-local ADDON_VERSION = "9"
+local ADDON_VERSION = "10.11"
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info128-SkyShards.html"
 local PINS_UNKNOWN = "SkySMapPin_unknown"
 local PINS_COLLECTED = "SkySMapPin_collected"
@@ -119,9 +122,18 @@ pinTooltipCreator.creator = function(pin)
 
 end
 
+-- eventually I'll update LibMapPins with this so it can work for everyone
+function SkyShards_GetZoneAndSubZone(alternative)
+	if alternative then
+		return select(3,(GetMapTileTexture()):lower():gsub("ui_map_", ""):find("maps/([%w%-]+/[%w%-]+_[%w%-]+)"))
+	end
+
+	return select(3,(GetMapTileTexture()):lower():gsub("ui_map_", ""):find("maps/([%w%-]+)/([%w%-]+_[%w%-]+)"))
+end
+
 local function CompassCallback()
 	if GetMapType() <= MAPTYPE_ZONE and db.filters[PINS_COMPASS] then
-		local zone, subzone = LMP:GetZoneAndSubzone()
+		local zone, subzone = Skyshards_GetZoneAndSubZone()
 		local skyshards = SkyShards_GetLocalData(zone, subzone)
 		if skyshards then
 			for _, pinData in ipairs(skyshards) do
@@ -135,25 +147,25 @@ local function CompassCallback()
 end
 
 local function ShouldDisplaySkyshards()
-	
+
 	if db.immersiveMode == 1 then
 		return true
 	end
-	
+
 	local mapIndex = GetCurrentMapIndex()
-	
+
 	if not mapIndex and IsInImperialCity() then mapIndex = GetImperialCityMapIndex() end
-	
+
 	if not mapIndex then
 		local measurements = GPS:GetCurrentMapMeasurements()
 		if measurements then
 			mapIndex = measurements.mapIndex	-- Sigh
 		end
 	end
-	
+
 	if mapIndex then
 		if db.immersiveMode == 2 then -- MainQuest
-			
+
 			local conditionData = SkyShards_GetImmersiveModeCondition(db.immersiveMode, mapIndex)
 			if type(conditionData) == "table" then
 				for conditionIndex, achievementIndex in ipairs(conditionData) do
@@ -167,16 +179,16 @@ local function ShouldDisplaySkyshards()
 				local _, _ , _, _, completed = GetAchievementInfo(conditionData)
 				return completed
 			end
-			
+
 		elseif db.immersiveMode == 3 then -- Wayshrines
-			
+
 			if mapIndex ~= 14 then -- It is impossible to unlock all Wayshrines in Cyrodiil
 				local conditionData = SkyShards_GetImmersiveModeCondition(db.immersiveMode, mapIndex)
 				return conditionData
 			end
-			
+
 		elseif db.immersiveMode == 4 then -- Exploration
-		
+
 			local conditionData = SkyShards_GetImmersiveModeCondition(db.immersiveMode, mapIndex)
 			if type(conditionData) == "table" then
 				for conditionIndex, achievementIndex in ipairs(conditionData) do
@@ -190,9 +202,9 @@ local function ShouldDisplaySkyshards()
 				local _, _ , _, _, completed = GetAchievementInfo(conditionData)
 				return completed
 			end
-			
+
 		elseif db.immersiveMode == 5 then -- Zone Quests
-		
+
 			local conditionData = SkyShards_GetImmersiveModeCondition(db.immersiveMode, mapIndex)
 			local conditionData = SkyShards_GetImmersiveModeCondition(db.immersiveMode, mapIndex)
 			if type(conditionData) == "table" then
@@ -207,19 +219,19 @@ local function ShouldDisplaySkyshards()
 				local _, _ , _, _, completed = GetAchievementInfo(conditionData)
 				return completed
 			end
-			
+
 		end
 	end
-	
+
 	return true
-	
+
 end
 
 local function CreatePins()
 
 	local shouldDisplay = ShouldDisplaySkyshards()
-	
-	local zone, subzone = LMP:GetZoneAndSubzone()
+
+	local zone, subzone = SkyShards_GetZoneAndSubZone()
 	local skyshards = SkyShards_GetLocalData(zone, subzone)
 
 	if skyshards ~= nil then
@@ -237,11 +249,11 @@ local function CreatePins()
 			end
 		end
 	end
-	
+
 	updatePins = {}
-	
+
 	updating = false
-	
+
 end
 
 local function QueueCreatePins(pinType)
@@ -286,9 +298,9 @@ local function SetMainworldTint(pin)
 			return MAINWORLD_SKYS
 		end
 	end
-	
+
 	return ZO_SELECTED_TEXT
-	
+
 end
 
 -- Slash commands -------------------------------------------------------------
@@ -303,8 +315,8 @@ local function ShowMyPosition()
 	local locX = ("%05.02f"):format(zo_round(x*10000)/100)
 	local locY = ("%05.02f"):format(zo_round(y*10000)/100)
 
-	MyPrint(zo_strformat("<<1>>: <<2>>\195\151<<3>> (<<4>>)", GetMapName(), locX, locY, LMP:GetZoneAndSubzone(true)))
-	
+	MyPrint(zo_strformat("<<1>>: <<2>>\195\151<<3>> (<<4>>)", GetMapName(), locX, locY, SkyShards_GetZoneAndSubZone(true)))
+
 end
 SLASH_COMMANDS["/mypos"] = ShowMyPosition
 SLASH_COMMANDS["/myloc"] = ShowMyPosition
@@ -320,13 +332,13 @@ end
 
 -- Settings menu --------------------------------------------------------------
 local function CreateSettingsMenu()
-	
+
 	local skillPanelChoices = {
 		[1] = GetString(SKYS_SKILLS_OPTION1),
 		[2] = GetString(SKYS_SKILLS_OPTION2),
 		[3] = GetString(SKYS_SKILLS_OPTION3),
 	}
-	
+
 	local immersiveChoices = {
 		[1] = GetString(SKYS_IMMERSIVE_CHOICE1),
 		[2] = GetString(SKYS_IMMERSIVE_CHOICE2),
@@ -334,7 +346,7 @@ local function CreateSettingsMenu()
 		[4] = GetString(SKYS_IMMERSIVE_CHOICE4),
 		[5] = GetString(SKYS_IMMERSIVE_CHOICE5),
 	}
-	
+
 	local pinTexturesList = {
 		[1] = "Default icons (Garkin)",
 		[2] = "Alternative icons (Garkin)",
@@ -342,7 +354,7 @@ local function CreateSettingsMenu()
 		[4] = "Glowing icons (Rushmik)",
 		[5] = "Realistic icons (Heidra)",
 	}
-	
+
 	local panelData = {
 		type = "panel",
 		name = GetString(SKYS_TITLE),
@@ -507,6 +519,7 @@ local function CreateSettingsMenu()
 					for index, name in ipairs(skillPanelChoices) do
 						if name == selected then
 							db.skillPanelDisplay = index
+							SKILLS_WINDOW:RefreshSkillPointInfo()
 							break
 						end
 					end
@@ -537,26 +550,29 @@ local function GetNumSkySkyShards()
 
 	collectedSkyShards = 0
 	totalSkyShards = 0
-	
+
 	local ids = SkyShards_GetAchievementIDs()
 	for achievementId in pairs(ids) do
-	
+
 		local numCriteria = GetAchievementNumCriteria(achievementId)
 		if numCriteria then
-			for n=1, numCriteria do 
+			for n=1, numCriteria do
 				local _, completed, required = GetAchievementCriterion(achievementId, n)
 				collectedSkyShards = collectedSkyShards + completed
 				totalSkyShards = totalSkyShards + required
 			end
 		end
-		
+
 	end
 
 end
 
 local function AlterSkyShardsIndicator()
 
-	local function PreHookUpdateSkyShards(self)
+	local function PreHookRefreshSkillPointInfo(self)				-- keyboard function
+    	local availablePoints = SKILL_POINT_ALLOCATION_MANAGER:GetAvailableSkillPoints()
+    	self.availablePointsLabel:SetText(zo_strformat(SI_SKILLS_POINTS_TO_SPEND, availablePoints))
+
 		if db.skillPanelDisplay > 1 then
 			if collectedSkyShards < totalSkyShards then
 				if db.skillPanelDisplay == 2 then
@@ -573,12 +589,11 @@ local function AlterSkyShardsIndicator()
 			return true
 		end
 	end
-	
-	local function PreHookRefreshPointsDisplay(self)
-	
+
+	local function PreHookRefreshPointsDisplay(self)		-- gamepad function
 		local availablePoints = GetAvailableSkillPoints()
 		self.headerData.data1Text = availablePoints
-		
+
 		if db.skillPanelDisplay == 1 then
 			local skyShards = GetNumSkyShards()
 			self.headerData.data2Text = zo_strformat(SI_GAMEPAD_SKILLS_SKY_SHARDS_FOUND, skyShards, NUM_PARTIAL_SKILL_POINTS_FOR_FULL)
@@ -594,16 +609,16 @@ local function AlterSkyShardsIndicator()
 				self.headerData.data2Text = collectedSkyShards
 			end
 		end
-		
+
 		ZO_GamepadGenericHeader_RefreshData(self.header, self.headerData)
 		return true
-		
+
 	end
-	
+
 	GetNumSkySkyShards()
-	ZO_PreHook(SKILLS_WINDOW, "UpdateSkyShards", PreHookUpdateSkyShards)
+	ZO_PreHook(SKILLS_WINDOW, "RefreshSkillPointInfo", PreHookRefreshSkillPointInfo)
 	ZO_PreHook(GAMEPAD_SKILLS, "RefreshPointsDisplay", PreHookRefreshPointsDisplay)
-	
+
 end
 
 -- Event handlers -------------------------------------------------------------
@@ -625,15 +640,15 @@ end
 local function NamesToIDSavedVars()
 
 	if not db.namesToIDSavedVars then
-		
+
 		local displayName = GetDisplayName()
 		local name = GetUnitName("player")
-		
+
 		if SkyS_SavedVariables.Default[displayName][name] then
 			db = SkyS_SavedVariables.Default[displayName][name]
 			db.namesToIDSavedVars = true -- should not be necessary because data don't exist anymore in SkyS_SavedVariables.Default[displayName][name]
 		end
-		
+
 	end
 
 end
@@ -645,9 +660,9 @@ local function OnLoad(_, name)
 
 		db = ZO_SavedVars:NewCharacterIdSettings("SkyS_SavedVariables", 4, nil, defaults)
 		NamesToIDSavedVars()
-		
+
 		MAINWORLD_SKYS = ZO_ColorDef:New(db.mainworldSkyshards)
-		
+
 		--get pin layout from saved variables
 		local pinTextureType = db.pinTexture.type
 		local pinTextureLevel = db.pinTexture.level
@@ -707,19 +722,19 @@ local function OnLoad(_, name)
 
 		-- addon menu
 		CreateSettingsMenu()
-		
+
 		-- Set wich tooltip must be used
 		OnGamepadPreferredModeChanged()
-		
+
 		-- Change SkyShard Display on Skills window
 		AlterSkyShardsIndicator()
-		
+
 		--events
 		EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_ACHIEVEMENT_UPDATED, OnAchievementUpdate)
 		EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_ACHIEVEMENT_AWARDED, OnAchievementAwarded)
 		EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, OnGamepadPreferredModeChanged)
 	end
-	
+
 end
 
 EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_ADD_ON_LOADED, OnLoad)
